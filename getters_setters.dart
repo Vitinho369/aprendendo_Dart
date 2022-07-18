@@ -1,7 +1,7 @@
 class Pessoa{
   String nome = "";
-  int idade = 0;
-  double altura = 0;
+  int _idade = 0; // o _ indica que o atributo é privado
+  double _altura = 0;
 
  /* Pessoa(String nome, int idade, double altura){ Forma classica de fazer um construtor
     this.nome = nome;
@@ -9,11 +9,11 @@ class Pessoa{
     this.altura = altura;
   }*/
 
-  Pessoa(this.nome, this.idade, this.altura);// outra forma de fazer o construtor
+  Pessoa(this.nome, this._idade, this._altura);// outra forma de fazer o construtor
   
-  Pessoa.nascer(this.nome, this.altura){// em Dart existe outro tipo de construtor
+  Pessoa.nascer(this.nome, this._altura){// em Dart existe outro tipo de construtor
   // que possui um nome específico (definido no momento de sua criação, neste caso o nome do cosntrutor é nascer), chamado named constructor
-    idade = 0;
+    _idade = 0;
     print("$nome nasceu!");
     dormir(); // chamando função dentro do construtor
   }
@@ -23,7 +23,22 @@ class Pessoa{
   }
 
   void aniver(){
-    idade++;
+    _idade++;
+  }
+
+  /*int get idade{
+    return _idade;
+  }*/
+
+  int get idade => _idade; // retornando sem return
+
+  double get altura{
+    return _altura;
+  }  
+
+  set altura(double altura){
+    if(altura > 0.0 && altura < 3.0)
+      _altura = altura;
   }
 }
 
@@ -42,6 +57,8 @@ void main(){
   pessoa2.dormir();
 
   Pessoa nene = Pessoa.nascer("Doidinho", 0.30);// chamando construtor nascer
+  nene.altura = 2.0;
+  print(nene.altura);
   print(nene.nome);
   print(nene.idade);
 }
