@@ -27,7 +27,7 @@ void main(){
   pessoas.add(Pessoa("Maria", 10));
   pessoas.add(Pessoa("Joaõ", 20));
 
-  for(Pessoa p in pessoas){// for personalizado para a lista pessoas
+  for(Pessoa p in pessoas){// for personalizado para a lista pessoas, chamado de for each
     print(p.nome);
   }
 }

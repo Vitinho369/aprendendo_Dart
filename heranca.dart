@@ -40,7 +40,7 @@ void main(){
   cachorro.comer();
   cachorro.brincar();
   cachorro.fazerSom();
-
+  
   Gato gato = Gato("Gato", 10.0);
   gato.fazerSom();
   gato.comer();
